@@ -1,5 +1,13 @@
-spring:
-  config:
-    import: optional:configserver:http://localhost:8888
-  application:
-    name: discovery-service
+server:
+  port: ${PORT:8761}
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: ${EUREKA_HOST:localhost}
+  server:
+    renewal-percent-threshold: 0.90
