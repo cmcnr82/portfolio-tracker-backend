@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: test
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true # For local development. Set to false.
+    hostname: ${HOSTNAME:localhost}
+
+server:
+  port: ${PORT:8080}
