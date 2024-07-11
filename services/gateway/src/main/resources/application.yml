@@ -30,3 +30,24 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: ${ISSUER_URI:https://keycloak-production-c9a0.up.railway.app/realms/PortfolioTrackerApp}
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: test-public
+          uri: lb:http://PORTFOLIO-TRACKER-BACKEND
+          predicates:
+            - Path=/api/v1/test/public
+        - id: test-private
+          uri: lb:http://PORTFOLIO-TRACKER-BACKEND
+          predicates:
+            - Path=/api/v1/test/private
+        - id: eureka
+          uri: lb:http://EUREKA
+          predicates:
+            - Path=/eureka/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
