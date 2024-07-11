@@ -38,11 +38,11 @@ spring:
           lower-case-service-id: true
       routes:
         - id: test-public
-          uri: lb:http://PORTFOLIO-TRACKER-BACKEND
+          uri: lb:http://TEST
           predicates:
             - Path=/api/v1/test/public
         - id: test-private
-          uri: lb:http://PORTFOLIO-TRACKER-BACKEND
+          uri: lb:http://TEST
           predicates:
             - Path=/api/v1/test/private
         - id: eureka
