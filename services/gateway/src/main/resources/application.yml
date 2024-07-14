@@ -38,19 +38,19 @@ spring:
           lower-case-service-id: true
       routes:
         - id: test-public
-          uri: lb:http://TEST
+          uri: lb://TEST
           predicates:
             - Path=/api/v1/public/**
         - id: test-private
-          uri: lb:http://TEST
+          uri: lb://TEST
           predicates:
             - Path=/api/v1/private/**
         - id: test-logout
-          uri: lb:http://TEST
+          uri: lb://TEST
           predicates:
             - Path=/api/v1/logout
         - id: eureka
-          uri: lb:http://EUREKA
+          uri: lb://EUREKA
           predicates:
             - Path=/eureka/**
       default-filters:
