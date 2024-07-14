@@ -40,7 +40,7 @@ spring:
         - id: test-public
           uri: lb:http://TEST
           predicates:
-            - Path=/api/v1//public/**
+            - Path=/api/v1/public/**
         - id: test-private
           uri: lb:http://TEST
           predicates:
