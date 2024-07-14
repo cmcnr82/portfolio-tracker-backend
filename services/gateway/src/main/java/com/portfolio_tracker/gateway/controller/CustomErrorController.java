@@ -12,7 +12,10 @@ public class CustomErrorController implements ErrorController {
     @ResponseBody
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute("javax.servlet.error.status_code");
-        return "Error occurred with status code: " + status;
+        Object message = request.getAttribute("javax.servlet.error.message");
+        Object exception = request.getAttribute("javax.servlet.error.exception");
+        Object uri = request.getAttribute("javax.servlet.error.request_uri");
+        return "status: " + status + " /message:" + message+ " /exception:" + exception+ " /uri:" + uri;
     }
 
 }
