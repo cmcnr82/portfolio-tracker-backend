@@ -66,3 +66,16 @@ spring:
               - PUT
               - DELETE
               - PATCH
+
+## We enable the Actuator API to be able to access <<host>>/actuator/gateway/routes
+## We expose the routings that have been automatically detected (all)
+## Depending on the ROUTE_TABLES_ENABLED environment variable (true by default)
+management:
+  endpoint:
+    gateway:
+      enabled: ${ROUTE_TABLES_ENABLED:true}
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
