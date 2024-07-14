@@ -59,16 +59,20 @@ public class SecurityConfig {
                 //.requestMatchers(new AntPathRequestMatcher("/customers"))
                 //.permitAll()
                 //.hasRole("user")
-                .requestMatchers(new AntPathRequestMatcher("/api/v1/test/public"))
+                .requestMatchers(new AntPathRequestMatcher("/api/v1/public/**"))
                 .permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/"))
+                .requestMatchers(new AntPathRequestMatcher("/error/**"))
+                .permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/eureka/**"))
+                .permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/api/v1/logout"))
                 .permitAll()
                 .anyRequest()
                 .authenticated());
         http.oauth2ResourceServer((oauth2) -> oauth2
                 .jwt(Customizer.withDefaults()));
         http.oauth2Login(Customizer.withDefaults())
-                .logout(logout -> logout.addLogoutHandler(keycloakLogoutHandler).logoutSuccessUrl("/"));
+                .logout(logout -> logout.addLogoutHandler(keycloakLogoutHandler).logoutSuccessUrl("/api/v1/logout"));
         return http.build();
     }
 
