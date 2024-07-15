@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1")
 public class Controller {
 
-    @GetMapping("/public/test")
+    @GetMapping("/open")
     public ResponseEntity<String> get() {
         return ResponseEntity.ok("Public...");
     }
 
-    @GetMapping("/private/test")
+    @GetMapping("/close")
     public ResponseEntity<String> bye() {
         return ResponseEntity.ok("Private...");
     }
