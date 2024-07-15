@@ -19,12 +19,6 @@ eureka:
 spring:
   application:
     name: gateway
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: ${ISSUER_URI:http://localhost:9098/realms/micro-services}
-          jwk-set-uri: ${JWK_SET_URI:https://keycloak-production-3789.up.railway.app/realms/micro-services/.well-known/openid-configuration}
   cloud:
     gateway:
       discovery:
