@@ -29,15 +29,15 @@ spring:
         - id: test-public
           uri: lb:http://TEST
           predicates:
-            - Path=/open
+            - Path=/api/v1/open
         - id: test-private
           uri: lb:http://TEST
           predicates:
-            - Path=/close
+            - Path=/api/v1/close
         - id: test-logout
           uri: lb:http://TEST
           predicates:
-            - Path=/logout
+            - Path=/api/v1/logout
         - id: eureka
           uri: lb:http://Eureka
           predicates:
